@@ -1,5 +1,6 @@
 # Ignorar diretórios de dependências
 node_modules/
+.vscode/
 
 # Ignorar arquivos de log
 *.log
