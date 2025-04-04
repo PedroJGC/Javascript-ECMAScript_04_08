@@ -94,3 +94,66 @@ npm install --save-dev @babel/core @babel/cli @babel/preset-env
    npx babel arquivo.js --out-file arquivo-transpilado.js
 
    ```
+
+# Aula 03 - Configurando e Utilizando o Babel
+
+## Objetivo
+
+Nesta aula, vamos aprender a configurar e utilizar o Babel para transpilação de código JavaScript moderno.
+
+## Configuração do Babel
+
+### 1. Instalando os pacotes necessários
+
+Certifique-se de que os pacotes do Babel estão instalados. Caso ainda não tenha feito, execute:
+
+```bash
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+
+```
+
+---
+
+### 2. Criando a configuração do Babel
+
+Crie um arquivo chamado `babel.config.js` na raiz do seu projeto e adicione o seguinte conteúdo:
+
+```jsx
+const presets = ['@babel/preset-env'];
+
+module.exports = { presets };
+```
+
+Essa configuração define o preset `@babel/preset-env`, que permite transpilação de JavaScript moderno.
+
+---
+
+## Executando o Babel Manualmente
+
+Para transpirar um arquivo específico, execute o seguinte comando no terminal:
+
+```bash
+./node_modules/.bin/babel src/main.js --out-dir dist
+
+```
+
+- **`src/main.js`**: Arquivo de entrada com o código fonte.
+- **`dist`**: Diretório de saída onde o código transpilado será salvo.
+
+## Configurando Scripts no `package.json`
+
+Adicione um script para facilitar a execução no arquivo `package.json`:
+
+```json
+"scripts": {
+  "build": "babel src --out-dir dist"
+}
+
+```
+
+Com essa configuração, você pode executar o Babel utilizando o comando:
+
+```bash
+npm run build
+
+```
