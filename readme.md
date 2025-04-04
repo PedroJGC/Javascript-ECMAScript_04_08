@@ -140,7 +140,7 @@ Para transpirar um arquivo específico, execute o seguinte comando no terminal:
 - **`src/main.js`**: Arquivo de entrada com o código fonte.
 - **`dist`**: Diretório de saída onde o código transpilado será salvo.
 
-## Configurando Scripts no `package.json`
+# Aula 04 - Configurando Scripts no `package.json`
 
 Adicione um script para facilitar a execução no arquivo `package.json`:
 
@@ -157,3 +157,70 @@ Com essa configuração, você pode executar o Babel utilizando o comando:
 npm run build
 
 ```
+
+# Aula 05 - Utilizando o Arquivo Compilado
+
+## Objetivo
+
+Nesta aula, vamos aprender como utilizar o arquivo JavaScript compilado em uma página HTML para executar a lógica implementada.
+
+## Estrutura HTML
+
+Crie um arquivo HTML, como `index.html`, e insira o seguinte conteúdo:
+
+```html
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="dist/main.js"></script>
+  </body>
+</html>
+```
+
+### Explicação:
+
+- **`<!doctype html>`:** Declaração que informa ao navegador que o documento está no formato HTML5.
+- **`<meta charset="UTF-8" />`:** Configuração de codificação de caracteres para o formato UTF-8.
+- **`<script src="dist/main.js"></script>`:** Linka o arquivo JavaScript compilado, permitindo que as funcionalidades sejam executadas.
+
+## Arquivo Compilado - `main.js`
+
+Crie o arquivo `main.js` no diretório `dist` com o seguinte código:
+
+```jsx
+class User {
+  constructor({ email }) {
+    this.email = email;
+  }
+
+  sendMessage() {
+    console.log(`Mensagem enviada para: ${this.email}`);
+  }
+}
+
+let user = new User({ email: 'email@pedro.com' });
+user.sendMessage();
+```
+
+### Explicação:
+
+- **`class User`:** Define a classe `User` com suas propriedades e métodos.
+- **`constructor({ email })`:** Inicializa o objeto com o atributo `email`.
+- **`sendMessage()`:** Método que exibe uma mensagem no console com o email do usuário.
+- **Criação de instância:** Uma instância da classe `User` é criada e o método `sendMessage()` é chamado.
+
+## Como Testar
+
+1. Certifique-se de que o arquivo compilado (`main.js`) está na pasta `dist` do projeto.
+2. Abra o arquivo HTML (`index.html`) em um navegador.
+3. Verifique o console do navegador (tecla F12) para visualizar a mensagem exibida:
+
+   ```
+   Mensagem enviada para: email@pedro.com
+
+   ```
