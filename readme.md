@@ -224,3 +224,13 @@ user.sendMessage();
    Mensagem enviada para: email@pedro.com
 
    ```
+
+# Aula 06 - Automatizando as mudanças
+
+```json
+"scripts": {
+  "build": "babel src/main.js --watch --out-dir dist"
+}
+```
+
+O `watch` faz com que ao salvar o arquivo, a página seja atualizada automaticamente.
